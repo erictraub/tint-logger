@@ -1,159 +1,78 @@
 function TINT () {
-  var logObject = { cssString: '', stringToLog: '' };
+
+  var logObj = { cssString: 'padding: 1px 2px;', stringToLog: '' };
+
+  var tintObj = {};
+
+  var funcsObj = {};
+
+  funcsObj.setProperty = function (prop, cssString) {
+	  Object.defineProperty(tintObj, prop, {
+	    get: function() {
+	      logObj.cssString += cssString;
+	      return tintObj;
+	    }
+	  });
+  };
+
+  funcsObj.setAllProperties = function () {
+	  for (var prop in propertiesHash) {
+		  funcsObj.setProperty(prop, propertiesHash[prop]);
+	  };
+  };
+
+  funcsObj.styleObjToString = function (styleObj) {
+  	var cssString = '';
+    for (var key in styleObj) {
+      cssString += key + ': ' + styleObj[key] + ';';
+    };
+    return cssString;
+  };
+
+  var propertiesHash = {
+  	green: 'color: green;',
+  	blue: 'color: blue;',
+  	red: 'color: red;',
+  	magenta: 'color: magenta;',
+  	cyan: 'color: #1DCFCF;',
+  	orange: 'color: orange;',
+  	purple: 'color: #BB72E7;',
+  	pink: 'color: #F273F6;',
+  	bgGreen: 'background: green; color: white;',
+  	bgBlue: 'background: blue; color: white;',
+  	bgRed: 'background: red; color: white;',
+  	bgMagenta: 'background: magenta; color: white;',
+  	bgCyan: 'background: #1DCFCF;',
+  	bgOrange: 'background: orange;',
+  	bgPurple: 'background: #BB72E7; color: white;',
+  	bgPink: 'background: #F273F6; color: white;',
+  	bold: 'font-weight: bold;',
+  	xs: 'font-size: 5pt;',
+  	sm: 'font-size: 6pt;',
+  	md: 'font-size: 8pt;',
+  	lg: 'font-size: 11pt;',
+  	xl: 'font-size: 14pt;',
+  	bold: 'font-weight: bold;',
+  	underline: 'text-decoration: underline;',
+  	highlight: 'background: yellow; padding: 2px 4px;'
+  };
+
+  funcsObj.setAllProperties();
   
-  Object.defineProperty(logObject, 'green', {
+  Object.defineProperty(tintObj, 'log', {
     get: function() {
-      logObject.cssString += 'color:green;';
-      return logObject;
-    }
-  });
-  
-  Object.defineProperty(logObject, 'blue', {
-    get: function() {
-      logObject.cssString += 'color:blue;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'red', {
-    get: function() {
-      logObject.cssString += 'color:red;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'magenta', {
-    get: function() {
-      logObject.cssString += 'color:magenta;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'cyan', {
-    get: function() {
-      logObject.cssString += 'color:#1DCFCF;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'orange', {
-    get: function() {
-      logObject.cssString += 'color:orange;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'purple', {
-    get: function() {
-      logObject.cssString += 'color:#BB72E7;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'pink', {
-    get: function() {
-      logObject.cssString += 'color:#F273F6;';
-      return logObject;
-    }
-  });
-
-  //
-  Object.defineProperty(logObject, 'bgGreen', {
-    get: function() {
-      logObject.cssString += 'background:green;';
-      return logObject;
-    }
-  });
-  
-  Object.defineProperty(logObject, 'bgBlue', {
-    get: function() {
-      logObject.cssString += 'background:blue;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'bgRed', {
-    get: function() {
-      logObject.cssString += 'background:red;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'bgMagenta', {
-    get: function() {
-      logObject.cssString += 'background:magenta;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'bgCyan', {
-    get: function() {
-      logObject.cssString += 'background:#1DCFCF;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'bgOrange', {
-    get: function() {
-      logObject.cssString += 'background:orange;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'bgPurple', {
-    get: function() {
-      logObject.cssString += 'background:#BB72E7;';
-      return logObject;
-    }
-  });
-
-  Object.defineProperty(logObject, 'bgPink', {
-    get: function() {
-      logObject.cssString += 'background:#F273F6;';
-      return logObject;
-    }
-  });
-  ///
-
-  Object.defineProperty(logObject, 'bold', {
-    get: function() {
-      logObject.cssString += 'font-weight:bold;';
-      return logObject;
-    }
-  });
-  
-  
-  Object.defineProperty(logObject, 'xl', {
-    get: function() {
-      logObject.cssString += 'font-size:14pt;';
-      return logObject;
-    }
-  });
-  
-  Object.defineProperty(logObject, 'custom', {
-    get: function() {
-      return function(styleObj) {
-        for (var key in styleObj) {
-          logObject.cssString += key + ':' + styleObj[key] + ';';
-        }
-        return logObject;
+      return function(string, styleObj) {
+        logObj.stringToLog = string;
+        if (styleObj) logObj.cssString += funcsObj.styleObjToString(styleObj);
+        console.log('%c' + logObj.stringToLog, logObj.cssString);
+        logObj.cssString = 'padding: 1px 3px;';
+        logObj.stringToLog = '';
       };
     }
   });
   
-  Object.defineProperty(logObject, 'log', {
-    get: function() {
-      return function(string) {
-        logObject.stringToLog = string;
-        console.log('%c' + logObject.stringToLog, logObject.cssString);
-        logObject.cssString = '';
-        logObject.stringToLog = '';
-      };
-    }
-  });
-  
-  return logObject;
-}
+  return tintObj;
+};
 
 var Tint = new TINT();
 

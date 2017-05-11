@@ -1,1 +1,1 @@
-Tint.pink.log('here');
+Tint.highlight.bold.underline.log('here is some text');
