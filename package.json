@@ -1,0 +1,11 @@
+{
+  "name": "tint-logger",
+  "version": "1.0.0",
+  "description": "Library for coloring & styling your console.logs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Traub",
+  "license": "ISC"
+}
