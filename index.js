@@ -1,8 +1,11 @@
 function TINT () {
 
-  var logObj = { cssString: 'padding: 1px 2px;', stringToLog: '' };
+  var logObj = { cssString: 'padding: 1px 2px;' };
 
-  var tintObj = {};
+  var tintObj = function (stringToLog) {
+    console.log('%c' + stringToLog, logObj.cssString);
+    logObj.cssString = 'padding: 1px 2px;';
+  };
 
   var funcsObj = {};
 

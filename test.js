@@ -1,1 +1,14 @@
-Tint.highlight.bold.underline.log('here is some text');
+Tint.green.log('green');
+Tint.blue.log('blue');
+Tint.red.log('red');
+Tint.orange.log('orange');
+Tint.bgGreen.log('bgGreen');
+Tint.bgBlue.log('bgBlue');
+Tint.bgRed.log('bgRed');
+Tint.bgOrange.log('bgOrange');
+Tint.bold.log('bold');
+Tint.underline.log('underline');
+Tint.sm.log('sm');
+Tint.xl.green.bold.underline.log('xl');
+Tint.log('log');
+Tint.bold.lg.blue.log('big bold blue');
