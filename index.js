@@ -10,22 +10,22 @@ function TINT () {
   var funcsObj = {};
 
   funcsObj.setProperty = function (prop, cssString) {
-	  Object.defineProperty(tintObj, prop, {
-	    get: function() {
-	      logObj.cssString += cssString;
-	      return tintObj;
-	    }
-	  });
+    Object.defineProperty(tintObj, prop, {
+      get: function() {
+        logObj.cssString += cssString;
+        return tintObj;
+      }
+    });
   };
 
   funcsObj.setAllProperties = function () {
-	  for (var prop in propertiesHash) {
-		  funcsObj.setProperty(prop, propertiesHash[prop]);
-	  };
+    for (var prop in propertiesHash) {
+      funcsObj.setProperty(prop, propertiesHash[prop]);
+    };
   };
 
   funcsObj.styleObjToString = function (styleObj) {
-  	var cssString = '';
+    var cssString = '';
     for (var key in styleObj) {
       cssString += key + ': ' + styleObj[key] + ';';
     };
@@ -33,31 +33,31 @@ function TINT () {
   };
 
   var propertiesHash = {
-  	green: 'color: green;',
-  	blue: 'color: blue;',
-  	red: 'color: red;',
-  	magenta: 'color: magenta;',
-  	cyan: 'color: #1DCFCF;',
-  	orange: 'color: orange;',
-  	purple: 'color: #BB72E7;',
-  	pink: 'color: #F273F6;',
-  	bgGreen: 'background: green; color: white;',
-  	bgBlue: 'background: blue; color: white;',
-  	bgRed: 'background: red; color: white;',
-  	bgMagenta: 'background: magenta; color: white;',
-  	bgCyan: 'background: #1DCFCF;',
-  	bgOrange: 'background: orange;',
-  	bgPurple: 'background: #BB72E7; color: white;',
-  	bgPink: 'background: #F273F6; color: white;',
-  	bold: 'font-weight: bold;',
-  	xs: 'font-size: 5pt;',
-  	sm: 'font-size: 6pt;',
-  	md: 'font-size: 8pt;',
-  	lg: 'font-size: 11pt;',
-  	xl: 'font-size: 14pt;',
-  	bold: 'font-weight: bold;',
-  	underline: 'text-decoration: underline;',
-  	highlight: 'background: yellow; padding: 2px 4px;'
+    green: 'color: green;',
+    blue: 'color: blue;',
+    red: 'color: red;',
+    magenta: 'color: magenta;',
+    cyan: 'color: #1DCFCF;',
+    orange: 'color: orange;',
+    purple: 'color: #BB72E7;',
+    pink: 'color: #F273F6;',
+    bgGreen: 'background: green; color: white;',
+    bgBlue: 'background: blue; color: white;',
+    bgRed: 'background: red; color: white;',
+    bgMagenta: 'background: magenta; color: white;',
+    bgCyan: 'background: #1DCFCF;',
+    bgOrange: 'background: orange;',
+    bgPurple: 'background: #BB72E7; color: white;',
+    bgPink: 'background: #F273F6; color: white;',
+    bold: 'font-weight: bold;',
+    xs: 'font-size: 5pt;',
+    sm: 'font-size: 6pt;',
+    md: 'font-size: 8pt;',
+    lg: 'font-size: 11pt;',
+    xl: 'font-size: 14pt;',
+    bold: 'font-weight: bold;',
+    underline: 'text-decoration: underline;',
+    highlight: 'background: yellow; padding: 2px 4px;'
   };
 
   funcsObj.setAllProperties();
@@ -78,8 +78,6 @@ function TINT () {
 };
 
 var Tint = new TINT();
-
-// Tint.green.bold.log('Bold and green text here');
 
 
 
