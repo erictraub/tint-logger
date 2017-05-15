@@ -2,16 +2,22 @@ function TINT () {
 
   var logObj = { cssString: 'padding: 1px 2px;' };
 
-  var tintObj = function (stringToLog) {
+  var tintObj = function (stringToLog, optionalCssObj) {
+    if (optionalCssObj) logObj.cssString += funcsObj.styleObjToString(optionalCssObj);
     console.log('%c' + stringToLog, logObj.cssString);
     logObj.cssString = 'padding: 1px 2px;';
   };
 
   var funcsObj = {};
 
-  funcsObj.setProperty = function (prop, cssString) {
-    Object.defineProperty(tintObj, prop, {
+  funcsObj.setProperty = function (propName, styleObj) {
+    Object.defineProperty(tintObj, propName, {
       get: function() {
+        var cssString = '';
+        for (var key in styleObj) {
+          if (propName.substring(0, 2) === 'bg' && logObj.cssString.indexOf('color') > -1 && key === 'color') continue;
+          cssString += key + ':' + styleObj[key] + ';';
+        };
         logObj.cssString += cssString;
         return tintObj;
       }
@@ -32,42 +38,86 @@ function TINT () {
     return cssString;
   };
 
-  // remove text color from bg* property
-  funcsObj.removeBgTextColor = function(cssString) {
-    var startIdx = cssString.indexOf('color:');
-    var endIdx = cssString.indexOf(';', startIdx) + 1;
-    var removeString = cssString.substring(startIdx, endIdx);
-    cssString.replace(removeString, '');
-    if (cssString[cssString.length - 1] == '') cssString = cssString.slice(0, -1);
-    return cssString;
-  };
-
   var propertiesHash = {
-    green: 'color: green;',
-    blue: 'color: blue;',
-    red: 'color: red;',
-    magenta: 'color: magenta;',
-    cyan: 'color: #1DCFCF;',
-    orange: 'color: orange;',
-    purple: 'color: #BB72E7;',
-    pink: 'color: #F273F6;',
-    bgGreen: 'background: green; color: white;',
-    bgBlue: 'background: blue; color: white;',
-    bgRed: 'background: red; color: white;',
-    bgMagenta: 'background: magenta; color: white;',
-    bgCyan: 'background: #1DCFCF;',
-    bgOrange: 'background: orange;',
-    bgPurple: 'background: #BB72E7; color: white;',
-    bgPink: 'background: #F273F6; color: white;',
-    bold: 'font-weight: bold;',
-    xs: 'font-size: 5pt;',
-    sm: 'font-size: 6pt;',
-    md: 'font-size: 8pt;',
-    lg: 'font-size: 11pt;',
-    xl: 'font-size: 14pt;',
-    bold: 'font-weight: bold;',
-    underline: 'text-decoration: underline;',
-    highlight: 'background: yellow; padding: 2px 4px;'
+    green: {
+      color: 'green'
+    },
+    blue: {
+      color: 'blue'
+    },
+    red: {
+      color: 'red'
+    },
+    magenta: {
+      color: 'magenta'
+    },
+    cyan: {
+      color: '#1DCFCF'
+    },
+    orange: {
+      color: 'orange'
+    },
+    purple: {
+      color: '#BB72E7'
+    },
+    pink: {
+      color: '#F273F6'
+    },
+    bgGreen: {
+      background: 'green',
+      color: 'white'
+    },
+    bgBlue: {
+      background: 'blue',
+      color: 'white'
+    },
+    bgRed: {
+      background: 'red',
+      color: 'white'
+    },
+    bgMagenta: {
+      background: 'magenta',
+      color: 'white'
+    },
+    bgCyan: {
+      background: '#1DCFCF'
+    },
+    bgOrange: {
+      background: 'orange'
+    },
+    bgPurple: {
+      background: '#BB72E7',
+      color: 'white'
+    },
+    bgPink: {
+      background: '#F273F6',
+      color: 'white'
+    },
+    xs: {
+      'font-size': '5pt'
+    },
+    sm: {
+      'font-size': '6pt'
+    },
+    md: {
+      'font-size': '8pt'
+    },
+    lg: {
+      'font-size': '11pt'
+    },
+    xl: {
+      'font-size': '14pt'
+    },
+    bold: {
+      'font-weight': 'bold'
+    },
+    underline: {
+      'text-decoration': 'underline'
+    },
+    highlight: {
+      background: 'yellow',
+      padding: '2px 4px'
+    }
   };
 
   funcsObj.setAllProperties();

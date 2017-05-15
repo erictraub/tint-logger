@@ -6,6 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+  	"tint",
+  	"tint-logger",
+  	"colors",
+  	"colours",
+  	"formatting",
+  	"format",
+  	"console",
+  	"browser",
+  	"string",
+  	"style",
+  	"text"
+  ],
   "author": "Eric Traub",
   "license": "ISC"
 }
