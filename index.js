@@ -32,6 +32,16 @@ function TINT () {
     return cssString;
   };
 
+  // remove text color from bg* property
+  funcsObj.removeBgTextColor = function(cssString) {
+    var startIdx = cssString.indexOf('color:');
+    var endIdx = cssString.indexOf(';', startIdx) + 1;
+    var removeString = cssString.substring(startIdx, endIdx);
+    cssString.replace(removeString, '');
+    if (cssString[cssString.length - 1] == '') cssString = cssString.slice(0, -1);
+    return cssString;
+  };
+
   var propertiesHash = {
     green: 'color: green;',
     blue: 'color: blue;',
