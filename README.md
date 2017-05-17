@@ -1,4 +1,4 @@
-### **Tint**
+## **Tint**
 Colors and Styling for your console.logs in the browser.
 
 
