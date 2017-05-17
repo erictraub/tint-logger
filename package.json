@@ -1,6 +1,6 @@
 {
   "name": "tint-logger",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Library for coloring & styling your console.logs.",
   "main": "index.js",
   "scripts": {
