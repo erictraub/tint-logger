@@ -21,6 +21,7 @@
   ],
   "author": "Eric Traub",
   "license": "ISC",
+  "repository": "erictraub/tint-logger",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
