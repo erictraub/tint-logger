@@ -1,12 +1,23 @@
-Tint.blue.log('blue');
+var styleObj = {
+	'background-color': '#6CDFEA',
+	'color': '#4852CD',
+	'font-style': 'italic',
+	'font-weight': 700
+};
 
-Tint.bgGreen.log('bgGreen');
+Tint.log('custom styling!', styleObj);
 
-Tint.bold.log('bold');
 
-Tint.bold.magenta.log('bold & magenta');
 
-Tint.blue.bgOrange.bold.log('blue, bgOrange, bold!');
+// Tint.blue.log('blue');
+
+// Tint.bgGreen.log('bgGreen');
+
+// Tint.bold.log('bold');
+
+// Tint.bold.magenta.log('bold & magenta');
+
+// Tint.blue.bgOrange.bold.log('blue, bgOrange, bold!');
 
 
 

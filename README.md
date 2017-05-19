@@ -31,3 +31,13 @@ or
 ![alt text][options]
 
 [options]: https://github.com/erictraub/tint-logger/blob/master/assets/screenshot.png?raw=true "Options"
+
+<br/>
+
+##### Custom styles:
+
+Create a css style object and pass it into the log property as a second parameter.
+
+![alt text][options]
+
+[options]: https://github.com/erictraub/tint-logger/blob/master/assets/custom-styling.png?raw=true "Options"
