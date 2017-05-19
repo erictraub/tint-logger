@@ -2,6 +2,7 @@
 Colors and Styling for your console.logs in the browser.
 
 
+<br/>
 ##### Include:
 
 ```javascript
@@ -14,38 +15,15 @@ or
 <script src="/...path-to.../tint-logger/dist/tint.min.js"></script>
 ```
 
-
+<br/>
 ##### How to use:
-Chain style properties and a string into the last property to log it out with style.
+![alt text][exampleScreenshot]
 
-```javascript
-Tint.green('green text'); // => logs green text
-Tint.bgBlue('blue background'); // => logs text with blue background
-Tint.xl.bold.blue.bgPink('green text'); // => logs green extra-large, bold, blue text with pink background
-```
+[exampleScreenshot]: https://github.com/erictraub/tint-logger/blob/master/assets/example-screenshot.png?raw=true "Example"
 
-Different Options:   
-`.green`  
-`.blue`  
-`.red`  
-`.magenta`  
-`.cyan`  
-`.orange`  
-`.purple`  
-`.pink`  
-`.bgGreen`  
-`.bgBlue`  
-`.bgRed`  
-`.bgMagenta`  
-`.bgCyan`  
-`.bgOrange`  
-`.bgPurple`  
-`.bgPink`  
-`.highligh`  
-`.underline`  
-`.bold`  
-`.xs`  
-`.sm`  
-`.ms`  
-`.lg`  
-`.xl`  
+<br/>
+##### Different Options: 
+
+![alt text][options]
+
+[options]: https://github.com/erictraub/tint-logger/blob/master/assets/screenshot.png?raw=true "Options"
