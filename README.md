@@ -40,4 +40,4 @@ Create a css style object and pass it into the log property as a second paramete
 
 ![alt text][customStyling]
 
-[customStyling]: https://github.com/erictraub/tint-logger/blob/master/assets/custom-styling.png?raw=true "Options"
+[customStyling]: https://github.com/erictraub/tint-logger/blob/master/assets/custom-style.png?raw=true "Options"
