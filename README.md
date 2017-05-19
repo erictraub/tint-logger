@@ -3,6 +3,7 @@ Colors and Styling for your console.logs in the browser.
 
 
 <br/>
+
 ##### Include:
 
 ```javascript
@@ -16,12 +17,15 @@ or
 ```
 
 <br/>
+
 ##### How to use:
+
 ![alt text][exampleScreenshot]
 
 [exampleScreenshot]: https://github.com/erictraub/tint-logger/blob/master/assets/example-screenshot.png?raw=true "Example"
 
 <br/>
+
 ##### Different Options: 
 
 ![alt text][options]
