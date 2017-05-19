@@ -1,20 +1,22 @@
-## **Tint**
+# **Tint**
 Colors and Styling for your console.logs in the browser.
 
 
 ##### Include:
-```javascript
-<script src="/...path-to.../tint-logger/dist/tint.min.js"></script>
-```
-or
 
 ```javascript
 <script src="/...path-to.../tint-logger/dist/tint.js"></script>
 ```
 
+or
+
+```javascript
+<script src="/...path-to.../tint-logger/dist/tint.min.js"></script>
+```
+
 
 ##### How to use:
-Chain properties and pass a string into the last property to log it out with style.
+Chain style properties and a string into the last property to log it out with style.
 
 ```javascript
 Tint.green('green text'); // => logs green text
